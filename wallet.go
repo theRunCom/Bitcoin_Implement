@@ -62,7 +62,6 @@ func checkSum(payload []byte) []byte {
 	checksum := second[0:4]
 	return checksum
 }
-
 func isValidAddress(address string) bool {
 	decodeInfo := base58.Decode(address)
 	if len(decodeInfo) != 25 {
