@@ -12,7 +12,6 @@ func (cli *CLI) createBlockChain(address string) {
 		fmt.Println("The address is invalid, the invalid address is: ", address)
 		return
 	}
-
 	err := CreateBlockChain(address)
 	if err != nil {
 		fmt.Println("CreateBlockChain failed:", err)
