@@ -27,7 +27,6 @@ func (pow *ProofOfWork) Run() ([]byte, uint64) {
 	var nonce uint64
 	var hash [32]byte
 	fmt.Println("Start mining...")
-
 	for {
 		fmt.Printf("%x\r", hash[:])
 		data := pow.PrepareData(nonce)
