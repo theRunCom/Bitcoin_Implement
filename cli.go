@@ -54,7 +54,7 @@ func (cli *CLI) Run() {
 			fmt.Println("Invalid input parameter, please check!")
 			return
 		}
-		address := cmds[2] //需要检验个数
+		address := cmds[2]
 		cli.getBalance(address)
 	case "send":
 		fmt.Println("Send command called")
