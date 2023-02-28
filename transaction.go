@@ -53,7 +53,6 @@ func (tx *Transaction) setHash() error {
 }
 
 var reward = 12.5
-
 func NewCoinbaseTx(miner string, data string) *Transaction {
 	input := TXInput{Txid: nil, Index: -1, ScriptSig: nil, PubKey: []byte(data)}
 	output := newTXOutput(miner, reward)
