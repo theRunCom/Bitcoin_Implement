@@ -30,10 +30,8 @@ func NewBlock(txs []*Transaction, prevHash []byte) *Block {
 		Hash:  nil,
 		Transactions: txs,
 	}
-
 	b.HashTransactionMerkleRoot()
 	fmt.Printf("merkleRoot:%x\n", b.MerkleRoot)
-
 	pow := NewProofOfWork(&b)
 	hash, nonce := pow.Run()
 	b.Hash = hash
