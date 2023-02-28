@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 )
+
 func uintToByte(num uint64) []byte {
 	var buffer bytes.Buffer
 	err := binary.Write(&buffer, binary.LittleEndian, &num)
