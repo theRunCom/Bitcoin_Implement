@@ -53,14 +53,11 @@ func GetBlockChainInstance() (*BlockChain, error) {
 	if isFileExist(blockchainDBFile) == false {
 		return nil, errors.New("The flie is not existed, please create it!")
 	}
-
 	var lastHash []byte 
-
 	db, err := bolt.Open(blockchainDBFile, 0600, nil)
 	if err != nil {
 		return nil, err
 	}
-
 	db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket([]byte(bucketBlock))
 		if bucket == nil {
@@ -70,7 +67,6 @@ func GetBlockChainInstance() (*BlockChain, error) {
 		}
 		return nil
 	})
-
 	bc := BlockChain{db, lastHash}
 	return &bc, nil
 }
@@ -87,11 +83,8 @@ func (bc *BlockChain) AddBlock(txs1 []*Transaction) error {
 			fmt.Printf("The current transaction verification failed: %x\n", tx.TXID)
 		}
 	}
-
 	lashBlockHash := bc.tail 
-
 	newBlock := NewBlock(txs, lashBlockHash)
-
 	err := bc.db.Update(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket([]byte(bucketBlock))
 		if bucket == nil {
@@ -104,7 +97,6 @@ func (bc *BlockChain) AddBlock(txs1 []*Transaction) error {
 		bc.tail = newBlock.Hash
 		return nil
 	})
-
 	return err
 }
 
