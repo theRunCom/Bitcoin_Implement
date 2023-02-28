@@ -10,7 +10,6 @@ import (
 )
 
 const walletFile = "wallet.dat"
-
 type WalletManager struct {
 	Wallets map[string]*wallet
 }
